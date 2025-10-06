@@ -112,8 +112,6 @@ public class WordleController {
     @FXML private Button keyB;
     @FXML private Button keyN;
     @FXML private Button keyM;
-    @FXML private Button keyENTER;
-    @FXML private Button keyBACKSPACE;
 
     @FXML
     public void initialize() {
@@ -142,6 +140,12 @@ public class WordleController {
             game = new WordleGame(secretWord);
             view.showMessage("New game started!");
         }
+        guessInput.setOnKeyPressed(event -> {
+            switch (event.getCode()) {
+                case ENTER -> handleEnter();
+                case BACK_SPACE -> {}
+            }
+        });
     }
 
     @FXML
